@@ -1,0 +1,50 @@
+%%%% Time-stamp: <2012-08-20 17:41:39 vk>
+
+%% example text content
+%% scrartcl and scrreprt starts with section, subsection, subsubsection, ...
+%% scrbook starts with part (optional), chapter, section, ...
+\chapter{Realisierung des Ansatzes}
+
+Ziel des, in diesem Abschnittes beschrieben, Programmes ist die Verifikation des in [Verweis auf Kapitel 2] beschrieben Ansatzes. Die Entwicklung des Programmes lässt sich an vier Meilensteinen klar festlegen:
+
+\begin{enumerate}
+	\item Version 0, diese Version ist das Fundament aller folgenden Versionen. Sie definiert das strukturelle Vorgehen um am Ende das Problem lösen zu können
+	
+	\item Mit Version 1 wird als erstes überprüft ob bei der Entwicklung des Ansatzes ein Fehler gemacht wurde. Dafür wird der Ansatz auf selbst generierte, bekannte Daten angewandt. Um so direkt Ausgangspunkt mit Ergebnis vergleichen zu können.
+	
+	\item Der nächste Schritt erfolgt mit Version 2, in der nun nicht mehr länger perfekte Daten sondern Daten mit einer gewissen Ungenauigkeit verwendet werden. Die hierfür verwendeten Daten werden mit dem physikalischen Renderprogramm Mitsuba generiert. 
+	
+	\item In der finalen Version 3 werden nun Daten aus einer realen Messung verwendet. (Verweis auf anderen Studenten??)
+\end{enumerate}
+
+Allgemein gilt für alle Versionen, dass die Laufzeit, Speicheraufwand und andere Optimierungseigenschaften bei der Entwicklung nicht im Vordergrund standen und deshalb größtenteils außer acht gelassen wurden. Die Wahl der verwendeten Programmiersprache fiel aus folgenden Gründen auf Python:
+
+\begin{itemize}
+	\item keine Wartezeit - Während des kompilieren entsteht keine Wartezeit
+	\item vorhandene Kompetenz - Python ist die am meisten verwendete Programmiersprache in der Abteilung, in der diese Arbeit erstellt wurde.
+	\item einfache Einarbeitung - Durch die Ähnlichkeit von Python zu der Programmiersprache C wurde keine, dem Ersteller dieser Arbeit, komplett unbekannte Sprache verwendet
+\end{itemize} 
+
+
+
+
+\section{Version 1 - Selbstgenerierte Daten}
+
+
+\section{Version 2 - Daten von Mitsuba}
+
+Mitsuba kurz erklären. Mitsuba Skript in einem weiteren Chapter genauer analysieren und darauf in diesem Abschnitt verweisen.
+
+\section{Version 3 - Echte Daten}
+
+
+
+%% vim:foldmethod=expr
+%% vim:fde=getline(v\:lnum)=~'^%%%%\ .\\+'?'>1'\:'='
+%%% Local Variables: 
+%%% mode: latex
+%%% mode: auto-fill
+%%% mode: flyspell
+%%% eval: (ispell-change-dictionary "en_US")
+%%% TeX-master: "main"
+%%% End: 

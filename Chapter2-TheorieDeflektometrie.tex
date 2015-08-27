@@ -1,0 +1,66 @@
+%%%% Time-stamp: <2012-08-20 17:41:39 vk>
+
+%% example text content
+%% scrartcl and scrreprt starts with section, subsection, subsubsection, ...
+%% scrbook starts with part (optional), chapter, section, ...
+\chapter{Theorie}
+
+Das hier beschriebene deflektometrische Messverfahren beruht auf dem Reflexionsgesetz aus der Optik. Dies besagt, wie in [Verweis auf Bild] zu sehen, das der Reflexionswinkel [BEZEICHNUNG] gleich dem Einfallswinkel [BEZEICHNUNG] eines Lichtstrahles ist.
+
+Hat man den Strahlengang des eintreffenden und den des reflektierten Strahles ermittelt, lässt sich aus [Verweis auf Skizze mit Berechnung für Normale] folgende Formel zur Berechnung der Normalen des Reflektionspunktes herleiten.\footnote{Auf die Problematik der Normalenvielfalt wird in dieser Arbeit nicht eingegangen. Hierzu empfiehlt sich [Verweis auf Doc Arbeit]}
+
+\input{TestFormeln} 
+FORMEL FÜR BERECHNUNG EINFÜGEN
+
+
+Zur Bestimmung des genauen Strahlengangs zwischen Monitor, Prüfobjekt und Kamera muss jedem Kamerapixel das eingefangene Monitorpixel zugeordnet werden können. Der genaue Ort der Reflexion auf der Prüfoberfläche lässt sich mit Hilfe des Kamerapixels und des Kameratyps bestimmen. Um die benötigten späteren Berechnungen zu vereinfachen, wird in dieser Arbeit immer eine telezentrische Kamera verwendet. Diese hat die Eigenschaft, dass alle empfangenen Lichtstrahlen parallel zueinander verlaufen und orthogonal auf die Linse treffen ([VERWEIS AUF ABBILDUNG]). Ein weiterer Vorteil von telezentrischen Kameras ist, das bei ihnen keine perspektivische Verzerrung innerhalb eines Bildes auftritt.
+
+Durch die Verwendung der auf dem Monitor angezeigten Muster soll jedem Monitorpixel eine eindeutige Wertesequenz zugeordnet werden können. Am einfachsten, gleichzeitig auch am Zeitaufwendigsten, wäre es bei jedem Bild jeweils nur ein Monitorpixel anzuschalten. Dadurch wäre eine genaue Zuordnung zwischen Kamera- und Monitorpixel möglich. Auch könnte man versuchen mit Hilfe der verfügbaren Graustufen und/oder Farben des Monitors und mehreren Bildern jedem Pixel eine eindeutige Wertekombination zuzuordnen. Das empfangene Kamerabild wird jedoch im Normalfall immer gedämpft sein. Da diese Dämpfung von verschiedenen Parametern \footnote{Umgebungslicht, Reinheit der Oberfläche [wie viel Prozent des eintreffenden Lichts wird direkt und wie viel wird diffus reflektiert],....} abhängt, lässt sie sich nicht im allgemeinen Berechnen. Somit lässt sich von absoluten Werten nie auf ein Monitorpixel schließen. Folglich wird ein Verfahren gesucht, bei dem für eine genaue Zuordnung der exakte Wert der Graustufe irrelevant ist und vielmehr das Verhältnis zwischen mehreren Werten entscheidet.
+
+Diese Unabhängigkeit wird durch die Verwendung eines Sinusmusters erreicht. Da weder die Amplitude noch der Offset eine Auswirkung auf die Phasenverschiebung haben (siehe [Verweis auf Bild mit zwei Schwingungen mit unterschiedlicher max Ampl und versch. aber gleicher Phasenversch.]??), ist es uns mit dieser möglich einen von der Dämpfung unbeeinflussten Wert zur Kodierung der Pixel zu verwenden.
+
+
+\section{Phaseschiebeverfahren - Ruhendes Messobjekt}
+
+Bei dem sogenannten Phaseschiebeverfahren werden mehrere zueinander Phasenverschobene Schwingungsmuster auf dem Monitor angezeigt. Die Differenz der Phase die zwischen dem aktuell angezeigten und dem folgenden Muster besteht, ist dabei immer konstant. Um einer Überlagerung von jeweils einer Schwingung in x- und einer in y-Richtung zu entgehen, werden diese in zwei Arbeitsschritte getrennt (siehe [Abbildung mit Längs- und Querstreifen und Schwingung überlagert]).
+
+Betrachtet man nun ein einzelnes Kamerapixel über den Verlauf der aufgenommenen Bilder, erhält man Abtastwerte einer Periodischen Schwingung. Nähert man an diese Abtastwerte einen Sinus an, gibt die approximierte Phasenverschiebung Auskunft über die relative Lage des Monitorpixels innerhalb einer Periode. Da auf dem Monitor mehr als nur eine komplette Periodendauer angezeigt wird, ist die exakte Koordinate des Pixels noch unbekannt. Um diese herauszufinden, wird eine sogenannte Phasenentfaltung (phase-unwrapping) durchgeführt. Dabei wird die ermittelte Phase mit jenen der umliegenden Pixel in Zusammenhang gebracht um daraus am Ende ein großes Gesamtbild zu erhalten. [VERWEIS auf späteres Kapitel in dem erklärt wird wie 2 Schwingungen aneinander gehängt aussehen.] Da der komplette Ablauf dieses Vorgangs später durch einen einfachen Funktionsaufruf realisiert wird, wird auf eine genauere Betrachtung des Mathematischen Hintergrunds verzichtet.
+
+
+\section{Erweiterung des Ansatzes auf sich bewegende Prüfobjekte}
+
+Für den in dieser Arbeit entwickelten Ansatz der Deflektometrie im Durchlauf wird vorausgesetzt, dass dem Messsystem zu jeder Zeit die exakte Bewegungsrichtung und Geschwindigkeit des zu prüfenden Objektes bekannt ist.
+
+Betrachtete man bisher einen Punkt auf der Oberfläche, so wurde dieser bei jedem Bild von dem selben Kamerapixel erfasst. Dies macht die Lokalisierung eines Punktes von einem auf ein anderes Bild denkbar einfach. Ist das Objekt nun in Bewegung, müssen die Punkte auf der Oberfläche über alle Bilder verfolgt werden. In Abbildung [TABELLE Wo waren bisher die Werte eines Punktes vs. Wo sind sie jetzt zu finden]) Nach [Abbildung mit Messaufbau und bewegendem Objekt und Pixeln zu t0,t1,...] wird ein direkter Vergleich zwischen der Vermessung eines ruhenden Objektes und der Vermessung eines Objektes in Bewegung. Mit dem Wissen über die Geschwindigkeit [Variable] und der Bewegungsrichtung, lässt sich mit folgenden Formeln
+
+[Math Berechnung wie viele Pixel ein Punkt von Bild zu Bild wandert]
+
+der Pixelabstand [delta Pixel] berechnen den das Objekt und somit auch jeder Punkt auf dessen Oberfläche von einem auf das nächste Bild zurücklegt. 
+
+Die ursprüngliche Veränderung des angezeigten Musters um [deltaPhase] wird nun da sich das Objekt bewegt nicht länger benötigt. Bei einem statischen Muster erhält man, wie in [[Abbildung mit Messaufbau und bewegendem Objekt und Pixeln zu t0,t1,...] Beispielhaft an der Verfolgung eines einzelnen Punktes der Oberfläche gezeigt, automatisch sich unterscheidende Abtastwerte der Schwingung.
+
+Im Unterschied zu dem bisherigen Modell ist uns hierbei jedoch der Abstand zwischen zwei Abtastwerten unbekannt. Je nach Winkel in welchem der Sichtstrahl auf den Monitor trifft, variiert der Abstand auf dem Monitor (siehe [Abbildung mit Strahlen auf Monitor einmal Flach und einmal Steil]). Das entscheidende ist jedoch , dass der Abstand von zwei aufeinander folgenden Werten für den selben Punkt auf der Oberfläche immer konstant bleibt. Durch den festen Messaufbau und die telezentrische Kamera, bei der alle Sichtstrahlen im gleichen Winkel auf die Oberfläche treffen, ist dies garantiert (Siehe Abbildung). MATH BEWEIS?????????
+
+
+
+
+
+SUBSECTION PROBLEMATIKEN
+
+ERSTENS Längs und Querstreifen Muster sehr viele Zusätzliche Bilder nötig. Im endeffekt nur streifenmuster bringt gleiche Lösung
+
+ZWEITENS Min und Max möglich Normalenwinkel lässt sich aus Messaufbaue berechnen.
+
+DRITTENS selbst bei exakt konst bewegung kann Pixelverschiebung ungenau sein, besonders wenn die Bewegung 10,489 deltaPixel sind!!
+
+BEI ALLEN ZEICHNUNGEN DIE SCHWINGUNG BEIM MONITOR EINZEICHNEN UM ANZUZEIGEN WIE MUSTER DORT AUSSIEHT!
+
+%% vim:foldmethod=expr
+%% vim:fde=getline(v\:lnum)=~'^%%%%\ .\\+'?'>1'\:'='
+%%% Local Variables: 
+%%% mode: latex
+%%% mode: auto-fill
+%%% mode: flyspell
+%%% eval: (ispell-change-dictionary "en_US")
+%%% TeX-master: "main"
+%%% End: 

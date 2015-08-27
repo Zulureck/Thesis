@@ -1,0 +1,33 @@
+%%%% Time-stamp: <2012-08-20 17:41:39 vk>
+
+%% example text content
+%% scrartcl and scrreprt starts with section, subsection, subsubsection, ...
+%% scrbook starts with part (optional), chapter, section, ...
+\chapter{Einleitung}
+
+In der Industrie wird die Inspektion spiegelnder Oberflächen genutzt um Defekte in Bauteilen zu finden, deren "`makelloses"' Aussehen durch die Spiegelung der Umgebung definiert wird.
+
+Eine Methode diese Eigenschaft zu prüfen ist die Deflektometrie. Diese findet ihre Anwendung beim Vermessen von gerichtet reflektierenden Oberflächen und kann mit unterschiedlichem Aufwand betrieben werden. Angefangen bei der bloßen Lokalisierung von Defekten bis hin zur kompletten Rekonstruktion von Oberflächen steht sie dem Anwender zur Verfügung.
+
+Dabei verfährt die Deflektometrie genauso wie auch ein menschlicher Prüfer es tun würde [EINFÜGEN EINES BILDES WO IM ALLTÄGLICHEN EIN MENSCH SPIEGELNDE OBERFLÄCHEN WAHRNIMMT]. Sie betrachtet die Spiegelung eines bekannten Musters auf der Prüfoberfläche. Danach wird diese mit dem Original Muster verglichen und nach Verzerrungen gesucht. Anhand dieser Verzerrungen lässt sich auf die Gestalt der geprüften Oberfläche zurück schließen.
+
+Um die Deflektometrie direkt in der Produktion bei Bauteilen auf einem Fließband anzuwenden, ist es erforderlich, die Bewegung der Bauteile während der Prüfung zu berücksichtigen. Aus diesem Grund wird in dieser Arbeit ein Ansatz für ein deflektometrisches Verfahren im Durchlauf vorgestellt. Die Basis dieses Ansatzes beruht dabei auf dem im Institut bereits verwendeten deflektometrischen Verfahren zur Vermessung ruhender Objekte.
+
+ERKLÄRUNG WAS IN WELCHEM KAPITEL STEHT!!!!!!!! In welchem Kapitel wurden Welche Ziele Erreicht? (aka Theoretischer Ansatz, Praktische Umsetzung, Kontrolle mit Simulierten Datan, Kontrolle mit echten Daten, Auswertung der Daten)
+
+\section{Deflektometrie - Begriffsdefinition}
+
+Der Begriff der Deflektometrie umfasst verschiedene Messverfahren. Sie alle haben die Gemeinsamkeit, Informationen über die Gestalt einer Objektoberfläche zu sammeln. Dazu gehören Krümmung, Lackfehler und Defekte. Farb- und Materialbestimmung sind dagegen nicht Bestandteil der Prüfung. Jedes deflektometrische Verfahren kann einem von zwei Bereichen, in Bezug auf dass zu vermessende Objekt, zugeordnet werden. Es wird entweder ein diffus reflektierender oder ein hochreflektierender Körper untersucht. Während bei ersterem die Oberfläche mittels Auswertung der Helligkeitsverteilung einer Lichtquelle untersucht wird, werden bei den zweit genannten Oberflächen die Spiegelung bereits bekannter Muster betrachtet um Rückschlüsse auf die Oberfläche zu schließen
+
+[ZWEI BILDER VON DIFFUS REFLEKTIERENDER UND VOLLREFLEKTIERENDER OBERFLÄCHE!!!!!]
+
+In [ABBILDUNG] ist das Modell skizziert, welches als Ausgangspunkt dieser Arbeit dient. Über einen Handelsüblichen Monitor wird ein kontinuierliches Sinussignal als Streifenmuster geschoben. Dieses spiegelt sich in der Prüfoberfläche und wird von einer Kamera aufgefangen. Monitor und Kamera sind an den selbe Computer angeschlossen welcher direkt die Daten auswertet. 
+%% vim:foldmethod=expr
+%% vim:fde=getline(v\:lnum)=~'^%%%%\ .\\+'?'>1'\:'='
+%%% Local Variables: 
+%%% mode: latex
+%%% mode: auto-fill
+%%% mode: flyspell
+%%% eval: (ispell-change-dictionary "en_US")
+%%% TeX-master: "main"
+%%% End: 
