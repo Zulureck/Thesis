@@ -207,6 +207,23 @@
 %       {}%% optional (short) caption for list of figures
 %       {fig:}%% label
 
+%% template for inserting inkscape figures:
+% more information: http://genug-davon.de/more/index.php?section=inkscape
+%\begin{figure}[!ht]             % Einbetten in figure wie gehabt
+%	\centering                  % zentrierte Ausrichtung, optional
+%	\def\svgwidth{200pt}    
+%	% die Bildbreite muss auf diese Weise festgelegt werden!
+%	\input{versuchsaufbau.pdf_tex}  
+%	% 'versuchsaufbau' durch Dateinamen ersetzen.
+%	\caption{Versuchsaufbau}    % Bildunterschrift, optional
+%	\label{fig:aufbau}          % Label für Verweise, optional
+%\end{figure}
+
+% Verweise auf Kapitel mit \nameref{labelname}
+% Verweise auf Abbildungen mit \ref{labelname}
+% Verweise auf Seiten mit \pageref{labelname}
+%
+
 %% acronyms in small caps: \myacro{UNESCO}
 
 
@@ -248,7 +265,9 @@
 
 \input{Chapter1-Einleitung} 
 \input{Chapter2-TheorieDeflektometrie} 
-\input{Chapter3-RealisierungDesAnsatzes}  
+\input{Chapter3-RealisierungDesAnsatzes}
+\input{Chapter4-DatenAuswertung}  
+\input{Chapter5-Hilfsprogramme}  
 
 \input{example-style-chapter}   %% remove this line to get rid of the style chapter
 
